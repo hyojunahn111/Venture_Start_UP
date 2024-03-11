@@ -76,7 +76,53 @@ public class Application2 {
         /*2-5 문자열을 취급하는 자료형에 값 대입*/
         str = "안녕하세요";
 
+        /* 숫자로 된 형태의 값을 그대로 사용하는 자료형은 byte, short, int, double이다. */
+        /* 일반적으로 사용하는 값을 독특한 형태가 아닌 일반적인 형태로 사용할 수 있는 자료형을 대표자료형이라고 하며
+         * 정수형은 int, 실수형은 double이 대표 자료형이다.
+         *
+         * 정수의 경우는 일상 생활에서 많이 사용되는 숫자의 범위는 byte와 short으로 표현이 불가능한 경우가 많다.
+         * 따라서 int를 대표자료형으로 여기며, 특수한 경우가 아닌 이상 byte와 short은 잘 사용하지 않는다.
+         * 실수의 경우는 정확도를 기준으로 4byte 자료형보다 8byte 자료형이 더 정확한 실수를 표현할 수 있기 때문에 double을 대표자료형으로 사용하고
+         * float는 특수한 목적이 있는 경우에만 사용하게 된다. */
 
+        /* 위처럼 변수를 선언하고 난 뒤 최초로 값이 대입되는 것을 초기화 라고 한다. */
+        /* 위에서는 변수 선언과 값 대입을 따로 했지만 동시에 수행할 수도 있다.
+         * 명칭이 중요하지는 않지만 이 것을 '선언과 동시에 초기화' 라고 한다.
+         * */
+        int point = 100;
+        int bonus = 10;
+
+        /* 3. 변수를 사용한다. */
+        /* 3-1. 변수에 저장한 값 출력하기 */
+        /* 위에서 선언 후 초기화 한 변수들을 출력해보자 */
+        System.out.println("========== 변수에 저장된 값 출력 ===========");
+        System.out.println("bnum의 값 : " + bnum);
+        System.out.println("snum의 값 : " + snum);
+        System.out.println("inum의 값 : " + inum);
+        System.out.println("lnum의 값 : " + Lnum);
+
+        System.out.println("fnum의 값 : " + fnum);
+        System.out.println("dnum의 값 : " + dnum);
+
+        System.out.println("ch의 값 : " + ch);
+        System.out.println("ch2의 값 : " + ch2);
+
+        System.out.println("isTrue의 값 : " + isTrue);
+
+        System.out.println("str의 값 : " + str);
+
+
+        /* 3-2. 변수를 이용해서 연산하기 */
+        /* 변수에 저장된 값을 이용해서 연산을 할 수도 있다. */
+        System.out.println("포인트와 보너스의 합은? : " + (point + bonus));
+
+        /* 3-3. 대입연산자의 왼쪽과 오른쪽 편에 사용하기 */
+        /* 대입연산자의 왼편에는 공간이라는 의미, 오른 편에는 값이라는 의미이다.
+         * 따라서 point라는 공간에 point가 가지고 있는 값에 + 100한 값을 대입하라는 의미이다.
+         * */
+        point = point + 100;
+
+        System.out.println("point = point + 100 ? " + point);
 
 
     }

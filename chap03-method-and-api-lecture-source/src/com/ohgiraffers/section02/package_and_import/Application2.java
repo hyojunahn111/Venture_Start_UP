@@ -1,6 +1,9 @@
 package com.ohgiraffers.section02.package_and_import;
 
+/*사용하려는 클랙스까지를 작성해야한다*/
 import com.ohgiraffers.section01.method.Calculator;
+/*static*/
+import static com.ohgiraffers.section01.method.Calculator.maxNumberOf;
 
 public class Application2 {
     public static void main(String[] args) {
@@ -22,13 +25,13 @@ public class Application2 {
         System.out.println("50과 60중 더 작은 값은 : " + min);
 
         /*2. static method의 경우*/
-        int max = Calculator.maxNumberOf(50, 60);
+        int max = maxNumberOf(50, 60);
 
         System.out.println("50과 60중 더 큰 값은 : " + max);
 
         /*3. static 메소드를 호출할 때 클래스명도 생략하고 사용(import static)*/
-//        int max2 = maxNumberOf(100, 200);
-
+        int max2 = maxNumberOf(100, 200);
+        .
 //        System.out.println("100과 200 중 더 큰 값은 : " + max2);
 
 

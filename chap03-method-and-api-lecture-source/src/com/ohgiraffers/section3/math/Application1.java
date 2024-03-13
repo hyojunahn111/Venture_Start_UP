@@ -32,7 +32,7 @@ public class Application1 {
         * 컴파일러가 import java.lang.*; 이 코드를 추가해서 컴파일을 하기 때문이다
         * */
 
-        System.out.println("-1.25의 절대값 : " + (Math.abs()));
+        System.out.println("-1.25의 절대값 : " + (Math.abs(-7)));
 
         /*2. 최대값, 최솟값 출력*/
         System.out.println("10과 20중 더 작은 것은 : " + Math.min(10, 20));

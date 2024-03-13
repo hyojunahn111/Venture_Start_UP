@@ -31,7 +31,7 @@ public class Application2 {
 
         /*3. static 메소드를 호출할 때 클래스명도 생략하고 사용(import static)*/
         int max2 = maxNumberOf(100, 200);
-        .
+
 //        System.out.println("100과 200 중 더 큰 값은 : " + max2);
 
 

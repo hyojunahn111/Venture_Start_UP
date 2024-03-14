@@ -20,8 +20,14 @@ public class Application {
 //        b.testSimpleIfElseStatement();
 
         /*중첩 if-else문 흐름 확인용 메소드 호출*/
-        b.testNestedIfElseSatement();
+//        b.testNestedIfElseSatement();
 
+        C_ifElseIf c = new C_ifElseIf();
+        /*단독 if-else문 흐름 확인용 메소드 호출 =*/
 
+//        c.testSimpleIfElseIfStatement();
+
+        /*중첩 if-else-if문 흐름 확인용 메소드*/
+        c.testNestedIfElseIfStatement();
     }
 }

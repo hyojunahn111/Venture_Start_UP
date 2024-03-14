@@ -8,6 +8,8 @@ public class Application {
 //        a.testSimpleForStatement();
 
         /*반복문을 사용하는 예제*/
-        a.testForExample1();
+//        a.testForExample1();
+
+        a.testForExample2();
     }
 }

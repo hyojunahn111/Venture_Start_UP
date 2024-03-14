@@ -1,5 +1,7 @@
 package com.ohgiraffers.section02.looping;
 
+import java.util.Scanner;
+
 public class A_for {
 
     public void testSimpleForStatement(){
@@ -17,14 +19,335 @@ public class A_for {
             System.out.println(i);
         }
 
+        /*기본 반복문 이용해서 조금씩 바꿔가며 우선 문법을 익숙해지도록 하자*/
+        /*1. 증감식이 없는 경우
+         * 2. 조건식이 없는 경우
+         * 3. 초기식, 조건식, 증감식이 없는 경우
+         * 4. 초기식, 조건식, 증감식 등을 변경하고 실행 값 예측해보기
+         * 5. 역순으로 반복된 실행
+         * 등등 필요에 따라 더 기본 반복문을 변형해가며 테스트 해보자*/
+
+
+
     }
 
-    /*기본 반복문 이용해서 조금씩 바꿔가며 우선 문법을 익숙해지도록 하자*/
-    /*1. 증감식이 없는 경우
-    * 2. 조건식이 없는 경우
-    * 3. 초기식, 조건식, 증감식이 없는 경우
-    * 4. 초기식, 조건식, 증감식 등을 변경하고 실행 값 예측해보기
-    * 5. 역순으로 반복된 실행
-    * 등등 필요에 따라 더 기본 반복문을 변형해가며 테스트 해보자*/
+    public void testForExample1(){
+
+        /*무엇을 반복하는지를 확인하여 반복문으로 개선할 수 있다(1)*/
+
+        /*10명의 학생 이름을 입력받아 출력해보자*/
+        /*반복해야할 내용이 무엇인지와 몇 번 반복해야 하는지를 확인해보자*/
+        Scanner sc = new Scanner(System.in);
+
+//        System.out.println("1번째 학생의 이름을 입력해주세요 : ");
+//        String student1 = sc.nextLine();
+//        System.out.println("1번째 학생의 이름은 " + student1 + "입니다.");
+//        System.out.println("2번째 학생의 이름을 입력해주세요 : ");
+//        String student2 = sc.nextLine();
+//        System.out.println("2번째 학생의 이름은 " + student2 + "입니다.");
+//        System.out.println("3번째 학생의 이름을 입력해주세요 : ");
+//        String student3 = sc.nextLine();
+//        System.out.println("3번째 학생의 이름은 " + student3 + "입니다.");
+//        System.out.println("4번째 학생의 이름을 입력해주세요 : ");
+//        String student4 = sc.nextLine();
+//        System.out.println("4번째 학생의 이름은 " + student4 + "입니다.");
+//        System.out.println("5번째 학생의 이름을 입력해주세요 : ");
+//        String student5 = sc.nextLine();
+//        System.out.println("5번째 학생의 이름은 " + student5 + "입니다.");
+//        System.out.println("6번째 학생의 이름을 입력해주세요 : ");
+//        String student6 = sc.nextLine();
+//        System.out.println("6번째 학생의 이름은 " + student6 + "입니다.");
+//        System.out.println("7번째 학생의 이름을 입력해주세요 : ");
+//        String student7 = sc.nextLine();
+//        System.out.println("7번째 학생의 이름은 " + student7+ "입니다.");
+//        System.out.println("8번째 학생의 이름을 입력해주세요 : ");
+//        String student8 = sc.nextLine();
+//        System.out.println("8번째 학생의 이름은 " + student8 + "입니다.");
+//        System.out.println("9번째 학생의 이름을 입력해주세요 : ");
+//        String student9 = sc.nextLine();
+//        System.out.println("9번째 학생의 이름은 " + student9 + "입니다.");
+//        System.out.println("10번째 학생의 이름을 입력해주세요 : ");
+//        String student10 = sc.nextLine();
+//        System.out.println("10번째 학생의 이름은 " + student10 + "입니다.");
+
+
+        /*반복해야 하는 내용은
+        * 1. 안내문구 출력
+        * 2. 학생 이름 입력 받아 변수에 저장
+        * 3. 저장된 이름을 출력
+        *
+        * 반복 횟수는 1부터 10까지 1ㅣ씩 증가하며 총 10번을 반복한다*/
+
+        /*반복문으로 개선*/
+        System.out.println("몇 명의 학생이 있는지 입력해주세요. ");
+        int studentcount = sc.nextInt();
+
+        for(int i = 1; i<=studentcount; i++){
+
+            System.out.println(i + "번째 학생의 이름을 입력해주세요 : ");
+            String student = sc.next();
+
+            System.out.println("");
+            System.out.println("이 학생의 성적을 입력해주세요.");
+            int count = sc.nextInt();
+            System.out.println(i + "번째 학생의 이름은 " + student + "이며, 성적은 " + count + "점 입니다.");
+
+
+        }
+        System.out.println("10명의 학생 이름을 입력 받고 출력하는 기능을 완료했습니다");
+
+        /*1. 보다 간결하게 코드가 작성되어다(가독성)*/
+        /*2, 학생의 이름 뿐 아니라 성적도 입력하는 기능이 추가 된다면?(유ㅣ보수성)*/
+
+    }
+
+    public void testForExample2(){
+
+        /*무엇을 반복하는지를 확인하여 반복문으로 개선할 수 있다(2)*/
+
+        /*문장 속에서 규칙 찾기
+        * 1~10까지의 합계를 구하시오*/
+
+//        이렇게만 작성되어 있으면 처음 프로그래밍 하는 사람에게는 꽤나 난감하다
+        /*어느 정도 익숙한 사람에게는 저 문제에서 해결해야 하는 내용과 규칙이 머릿속에 자연스럽게 그려지지만
+        * 처음 접하는 사람한테는 그렇지 않다
+        * 반계적으로 접근할 수 있도록 위의 내용을 좀 풀어서 다시 작성해본다면
+        * 1부터 10까지 1씩 증가 시키면서 갑을 저장할 변수에 계속 누적시켜 변수에 저장된 값을 출력하세요가 된다*/
+
+        /*1~10까지 변수에 저장*/
+        int num1 = 1;
+        int num2 = 2;
+        int num3 = 3;
+        int num4 = 4;
+        int num5 = 5;
+        int num6 = 6;
+        int num7 = 7;
+        int num8 = 8;
+        int num9 = 9;
+        int num10 = 10;
+
+        /*결과를 누적시켜 담아줄 변수 선언*/
+        /*더한 값을 누적시킬 변수는 통사 0으로 초기화를 한다*/
+        int sum = 0;
+
+        /*sum에 변수의 값 하나씩 담기*/
+        sum += num1;
+        sum += num2;
+        sum += num3;
+        sum += num4;
+        sum += num5;
+        sum += num6;
+        sum += num7;
+        sum += num8;
+        sum += num9;
+        sum += num10;
+
+        /*sum에 저장된 값 출력*/
+        System.out.println("sum : " + sum);
+
+
+        int sum2 = 0;
+
+        for(int i = 1; i<= 10; i++){
+            sum2 += i;
+        }
+        System.out.println("sum2 : " + sum2);
+    }
+
+    /*무엇을 반복하면 좋을까? 바복해야 할 행동을 생각해보자
+    * 반복해야할 내용
+    * 1. 변수에 1씩 증가하는 값 담기
+    * 2. 저장된 값을 sum에 누적시키기
+    * 반복 횟수는? 1부터 10까지 1씩 증거(10번 반복)
+    *
+    * 반복하지 않을 내용
+    * 1. 값을 누적해서 저장할 sum을 초기화
+    * 2. sum에 누적된 값 출력*/
+
+
+
+    public void testForExample3(){
+
+        /*무엇을 반복하는지를 확인하여 반복문으로 개선할 수 있다(3)
+        * 반복문을 꼭 써야 하는 경우들도 종종 있다*/
+        /*우선 반복문을 써야하는 필요성을 느껴보기 위해 반복문을 쓰지 않고 작성해보자*/
+
+        /*5~10 사이 난수를 발생시켜서
+        * 1부터 발생한 난수까지의 합께를 구해보자*/
+
+        int random = (int) (Math.random() * 6) + 5;
+
+        System.out.println("random : " + random);
+
+        /*뭔가 더해서 담기 위해 sum 변수를 0우로 초기화*/
+        int sum = 0;
+
+        /*발생한 난수에 따라 더하는 숫자가 달라지기 때문에 조건문으로 이용해서 처리해보자*/
+        if(random == 5){
+            sum+= 1;
+            sum+= 2;
+            sum+= 3;
+            sum+= 4;
+            sum+= 5;
+        }else if(random == 6){
+            sum += 1;
+            sum += 3;
+            sum += 4;
+            sum += 4;
+            sum += 5;
+            sum += 6;
+        }else if(random == 7){
+            sum += 1;
+            sum += 3;
+            sum += 4;
+            sum += 4;
+            sum += 5;
+            sum += 6;
+            sum += 7;
+        }else if(random == 8){
+            sum += 1;
+            sum += 3;
+            sum += 4;
+            sum += 4;
+            sum += 5;
+            sum += 6;
+            sum += 7;
+            sum += 8;
+        }else if(random == 9){
+            sum += 1;
+            sum += 3;
+            sum += 4;
+            sum += 4;
+            sum += 5;
+            sum += 6;
+            sum += 7;
+            sum += 8;
+            sum += 9;
+        }else{
+            sum += 1;
+            sum += 3;
+            sum += 4;
+            sum += 4;
+            sum += 5;
+            sum += 6;
+            sum += 7;
+            sum += 8;
+            sum += 9;
+            sum += 10;
+        }
+        System.out.println("1부터 " + random + "가지의 합은 : " + sum);
+
+        /*반복문을 이용한 개선*/
+        int sum2 = 0;
+
+        for(int i = 0; i<=random; i++){
+            sum2 += i;
+
+        };
+        System.out.println("1부터 " + random + "가지의 합은 : " + sum2);
+    }
+
+    public void testForExample4(){
+        /*무엇을 반복하는지를 확인하며 반복문으로 개선할 수 있다(4)
+        * 숫자 두개를 입력 받아 작은 수에서 큰수까지의 합계를 구하세요
+        * 단 , 두 숫자는 같은 숫자를 입력하지 않는다는 가정으로 해결해본다*/
+
+        /*정수 두 개 입력*/
+        Scanner sc = new Scanner(System.in);
+        System.out.println("첫번째 정수 입력 : ");
+        int first = sc.nextInt();
+        System.out.println("두 번째 정수 입력 : ");
+        int second = sc.nextInt();
+
+        /*결과를 누적해서 담을 변수를 0으로 초기화*/
+        int sum = 0;
+
+        /*첫 번째 장소가 더 큰 경우*/
+        if (first > second){
+
+            /*둘 중 더 작은 second가 시작되는 값이 되고, 더 큰 first가 끝나는 값이 된다*/
+            for(int i = second; i <= first; i++){
+                sum += i;
+            }
+
+            /*반대로 두번째 정수가 더 큰 경우*/
+
+        }else{
+
+            /*둘 중 더 작은 first가 시작하는 값이 되고, 더 큰 second가 끝나는 값이 된다*/
+            for(int i = first ;i<=second; i++){
+                sum += i;
+            }
+
+        }
+        System.out.println("sum : " + sum);
+
+        /*결국 작은 수부터 시작해서 큰 수까지의 합계를 구하는 것이기 때문에
+        * first와 second중 어느 것이 더 큰 순인지를 확인하면
+        * 작은수 - 큰 수 까지의 합계를 구하는 로직으로 바꿀 수 있다*/
+
+        /*더 큰 값과 작은 값을 저장할 변수를 초기화 한다*/
+        int min = 0;
+        int max = 0;
+
+        if(first > second){
+
+            /*처음 입력한 숫자가 더 크게 되면 first가 max이고, 자동으로 second는 min이다*/
+            max = first;
+            min = second;
+        }else{
+
+            /*처음 입력한 숫자가 더 작으면 first는 min이고 자동으로 second는 max이다*/
+            min = first;
+            max = second;
+
+        }
+
+        /*반복문의 사작값은 min, 종료값은 max로 해두면 된다*/
+        int sum2 = 0;
+
+        for(int i = min; i<=max; i++){
+            sum2 += i;
+
+        }
+        System.out.println("sum2 : " + sum2);
+    }
+
+    public void printSimpleGugudan(){
+
+        /*무엇을 반복하는지를 확인하여 반복문으로 개선할 수 있다(5)
+        * 키보드로 2~9 사이의 구구단을 입력받아
+        * 2~9 사이인 경우 해당 단의 구구단을 출력하고
+        * 그렇지 않은 경우 "반드시 2~9 사이의 암수를 입력해야합니다" 출력*/
+
+        /*구구단은 곱하는 수가 1부터 시작해서 9까지 1씩 증가하며 곱하는 규칙을 가지고 있다*/
+        /*아래에서 규칙을 발견하고 규칙대로 for문을 이용하여 구구단을 출력하는 구문을 작성해보자*/
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("출력할 구구단 수를 입력하시오 : ");
+        int dan = sc.nextInt();
+
+        /*입력한 숫자가 2~9사이인지 조건 확인*/
+        if(dan >=2 && dan <= 9){
+            /*2~9까지 입력한 경우 구구단 출력*/
+            /*먼저 작성한 후에 규칙 찾아서 개선하기*/
+            System.out.println(dan + " * " + 1 + " = " + (dan * 1));
+//            ..
+//            ..
+//            ..
+//            ..
+//            ..
+            System.out.println(dan + " * " + 9 + " = " + (dan * 9));
+
+            for(int su = 1; su <=9; su++){
+                System.out.println(dan + " * " + su + " = " + (dan * su));
+            }
+        }else{
+            System.out.println("반드시 2~9사이의 정수 입력");
+        }
+        System.out.println("시스템 종료");
+    }
+
 
 }

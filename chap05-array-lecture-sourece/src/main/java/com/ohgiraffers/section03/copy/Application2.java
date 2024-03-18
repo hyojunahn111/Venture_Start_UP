@@ -23,21 +23,29 @@ public class Application2 {
 
         /*리턴받는 결과값도 얕은 복사인것을 출력해보면 알 수 있다*/
         System.out.println("리턴 받은 animals의 hashcode ");
+
+        print(animals);
     }
 
     public static void print(String[] sarr){
 
         /*전달받은 해시코드 출력*/
-        System.out.println("names의 hashcode : " + animals.hashCode());
+        System.out.println("animals의 hashcode : " + sarr.hashCode());
 
+        /*전달받은 배열의 값 출력*/
+        for(int i = 0; i<sarr.length; i++){
+            System.out.println(sarr[i] + " ");
+        }
+        System.out.println();
     }
+
 
     public static String[] getAnimales(){
 
         String[] animals = new String[]{"낙타", "호랑이", "나무늘보"};
 
         /*얕은복사 확인을 위해 hashcode 출력*/
-        System.out.println("새로만든 animals의 hashcode : " + andmals.hashCode());
+        System.out.println("새로만든 animals의 hashcode : " + animals.hashCode());
 
         return animals;
     }

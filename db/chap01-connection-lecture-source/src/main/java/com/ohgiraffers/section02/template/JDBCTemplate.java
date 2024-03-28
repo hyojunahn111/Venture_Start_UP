@@ -37,5 +37,17 @@ public class JDBCTemplate {
         return con;
     }
 
+    public static void close(Connection con){
+
+        if(con != null){
+            try {
+                con.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
 
 }

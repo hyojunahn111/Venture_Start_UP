@@ -18,7 +18,7 @@ public class Application2 {
 
         PreparedStatement pstmt = null;
         ResultSet rset = null;
-        String query = "SELECT * FROM EMPLOYEE WHERE EMP_ID = ? AND EMP_NAME = ?"; //구하고 싶은 정보를 출력하게 할 수 있음
+        String query = "SELECT * FROM EMPLOYEE WHERE EMP_ID = ? AND EMP_NAME = ?"; 
 
         try {
             pstmt = con.prepareStatement(query);

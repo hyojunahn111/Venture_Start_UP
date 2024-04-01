@@ -4,7 +4,7 @@ import com.ohgiraffers.domain.entity.Employee;
 
 import java.util.Scanner;
 
-public class Application3 {
+public class Application3 {                     //사용자가 볼 화면
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

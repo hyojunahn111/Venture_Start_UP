@@ -11,7 +11,7 @@ public class FindOneEmployeeService {
 
     public Employee findEmployeeByEmpId(String empId){
 
-        Connection con = getConnection();
+        Connection con = getConnection();               //데이터베이스 연결 생성
 
         EmployeeRepositoy repositoy = new EmployeeRepositoy();
 

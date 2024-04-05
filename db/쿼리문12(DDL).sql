@@ -107,3 +107,23 @@ select * from tbl_4;
 DROP TABLE IF EXISTS tbl_3;
 
 DROP TABLE IF EXISTS tbl_3, tbl_4, tbl_5;				-- IF EXISTS가 없으면 오류가 있을 때 실행이 아예 중단이 되어버리고 있다면 뭐가 문제인지 알려준다
+
+
+# TRUNCATE
+CREATE TABLE tbl_5(
+	pk INT AUTO_INCREMENT PRIMARY KEY,
+    fk INT,
+    col1 VARCHAR(255)
+    CHECK (col1 IN('Y', 'N'))
+) ENGINE=INNODB;
+
+INSERT INTO tbl_5 VALUES (null, 10, 'Y');
+INSERT INTO tbl_5 VALUES (null, 20, 'N');
+INSERT INTO tbl_5 VALUES (null, 30, 'Y');
+INSERT INTO tbl_5 VALUES (null, 40, 'Y');
+INSERT INTO tbl_5 VALUES (null, 50, 'N');
+
+SELECT * FROM tbl_5;
+
+TRUNCATE TABLE tbl_5;
+

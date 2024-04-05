@@ -73,5 +73,37 @@ ADD PRIMARY KEY(pk);
 ALTER TABLE tbl_2
 ADD col3 DATE NOT NULL,
 ADD col4 TINYINT NOT NULL;
+
+-- DATE형이 0으로 추가 불가능한 것은 MYSQL 5.7 버전 이후
+-- SELECT @@GLOBAL.sql_mode 했을 때 나온 결과에 있는 NO_ZERO_DATE 떄문
+-- (0으로 채워진 DATE 컬럼이 존재하면 안됨)
+-- 따라서 root 계쩡으로 SET GLOBAL = '';를 수행하고, 워크벤치를 껏다 켜서 반영시키면
+-- 위의 ALTER 구문이 정상 작동함
+
 -- ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
 SELECT @@GLOBAL.sql_mode;
+
+DESCRIBE tbl_2;
+
+# DROP
+CREATE TABLE tbl_3(
+	pk INT AUTO_INCREMENT PRIMARY KEY,
+    fk INT,
+    col1 VARCHAR(255)
+    CHECK (col1 IN('Y', 'N'))
+) ENGINE=INNODB;
+
+CREATE TABLE tbl_4(
+	pk INT AUTO_INCREMENT PRIMARY KEY,
+    fk INT,
+    col1 VARCHAR(255)
+    CHECK (col1 IN('Y', 'N'))
+) ENGINE=INNODB;
+
+select * from tbl_3;
+select * from tbl_4;
+
+-- DROP TABLE [IF EXISTS] 테이블명1, 테이블명2, ... [RESTRICT | CASCADE];
+DROP TABLE IF EXISTS tbl_3;
+
+DROP TABLE IF EXISTS tbl_3, tbl_4, tbl_5;				-- IF EXISTS가 없으면 오류가 있을 때 실행이 아예 중단이 되어버리고 있다면 뭐가 문제인지 알려준다

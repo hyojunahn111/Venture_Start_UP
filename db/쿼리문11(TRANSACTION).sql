@@ -1,5 +1,5 @@
 # TRANSACTION
-
+ 
 -- autocommit 비활성화
 SET autocommit = 0;
 -- or

@@ -18,16 +18,46 @@ public class Application {
 
     public static void main(String[] args) {
 
-        Environment environment = new Environment("dev", new JdbcTransactionFactory(), new PooledDataSource(DRIVER, URL, USER, PASSWORD));
+        /*DB 접속에 관한 환경 설정 정보를 가진 Environment 객체 생성 시 참고
+        * --------------------------------------------------------------
+        * <트랜잭션 매니저>
+        JdbcTransactionFactory : 코드 작성을 통한 수동 커밋 (권장)
+        * ManagedTransactionFactory : JDBC가 알아서 자동 커밋
+        * --------------------------------------------------------------
+        * < Connectionpool 사용 여부>
+        Pooled*/
 
+        Environment environment = new Environment("dev"
+                                                    , new JdbcTransactionFactory()
+                                                    , new PooledDataSource(DRIVER, URL, USER, PASSWORD));
+
+        /*생성한 환경 설정 정보를 가지고 MyBatis 설정 객체 생성*/
         Configuration configuration = new Configuration(environment);
 
+        /* 설정 객체에 mapper 등록*/
         configuration.addMapper(Mapper.class);
 
+        /* SqlSessionFactory : SqlSession 객체를 생성하기 위한 팩토리 역할을 수행하는 인터페이스
+        * SqlSessionFactoryBuilder : SqlSessionFactory 인터페이스 타입의 하위 구현 객체를 생성하기 위한 빌드 역할 수행
+        * build() : 설정에 대한 정보를 담고 있는 Configuration 타입의 객체 혹은 외부 설정 파일과 연결된 스트림을 매개변수로 전달하면
+        *           SqlSessionFactory 인터페이스 타입의 객체를 반환하는 메소드*/
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
 
+        /* openSession() : SqlSession 인터페이스 타입의 객체를 반환하는 메소드, boolean타입을 인자로 전달
+        *               -false : Connection 인터페이스 타입 객체로 DML 수행 후 auto commit에 대한 옵션을 falus로 지정 (권장)
+        *               -true : Connection 인터페이스 타입 객체로 DML 수행 후 auto commit에 대한 옵션을 true로 지정*/
         SqlSession sqlSession = sqlSessionFactory.openSession(false);
         //여기까지가 db connection 생성
 
+        /* getMapper() : Configuration에 등록된 매퍼를 동일 타입에 대해 반환하는 메소드*/
+        Mapper mapper = sqlSession.getMapper(Mapper.class);
+
+        /* Mapper 인터페이스에 작성된 메소드를 호출하여 쿼리 실행*/
+        java.util.Date date = mapper.selectSysdate();
+
+        System.out.println(date);
+
+        /* close() : SqlSession 객체 반납*/
+        sqlSession.close();
     }
 }

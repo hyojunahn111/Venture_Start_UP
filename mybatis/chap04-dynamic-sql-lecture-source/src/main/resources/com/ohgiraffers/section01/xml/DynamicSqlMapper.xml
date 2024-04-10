@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.section01.xml.DynamicSqlMapper">
+    <resultMap id="menuResultMap" type="com.ohgiraffers.common.MenuDTO">
+        <id property="code" column="menu_code"/>
+        <result property="name" column="menu_name"/>
+        <result property="price" column="menu_price"/>
+        <result property="categoryCode" column="category_code"/>
+        <result property="orderableStatus" column="orderable_status"/>
+    </resultMap>
+
+    <select id="selectMenuByPrice" parameterType="hashmap" resultMap="menuResultMap">
+        SELECT menu_code
+             , menu_name
+             , menu_price
+             , category_code
+             , orderable_status
+          FROM tbl_menu
+         WHERE orderable_status = 'Y'
+        <if test="price gte 0 and price lte 10000">
+            <![CDATA[
+                AND menu_price < #{ price }
+            ]]>                     <!--부등호를 쓰기 위해서는 이렇게 사용해야한다-->
+        </if>
+        <if test="price gt 10000 and price lte 20000">
+            AND menu_price BETWEEN 10000 AND #{ price }
+        </if>
+        <if test="price gt 20000 and price lte 30000">
+            AND menu_price BETWEEN 20000 AND #{ price }
+        </if>
+        <if test="price gt 30000">
+            AND menu_price BETWEEN 30000 AND #{ price }
+        </if>
+        ORDER BY menu_code
+    </select>
+
+    <select id="searchMenu" parameterType="SearchCriteria" resultMap="menuResultMap">
+        SELECT m.menu_code
+             , m.menu_name
+             , m.menu_price
+             , m.category_code
+             , m.orderable_status
+          FROM tbl_menu m
+        <if test="condition == 'name'">     <!--문자열인지 확인하기 위해서 ''를 쓴다-->
+            AND menu_name LIKE CONCAT('%', #{ value }, '%')
+        </if>
+        <if test="condition == 'category'">
+            JOIN tbl_category c ON (m.category_code = c.category_code)
+        </if>
+        WHERE m.orderable_status = 'Y'
+        <if test="condition == 'menu'">
+            AND m.menu_name LIKE CONCAT('%', #{ value }, '%')
+        </if>
+        <if test="condition == 'category'">
+            AND c.category_name = #{ value }
+        </if>
+        ORDER BY m.menu_code
+
+
+    </select>
+</mapper>

@@ -1,6 +1,6 @@
 package com.ohgiraffers.common;
 
-public class MenuDTO implements java.io.Serializable{
+public class MenuDTO implements java.io.Serializable {
 
     private int code;
     private String name;

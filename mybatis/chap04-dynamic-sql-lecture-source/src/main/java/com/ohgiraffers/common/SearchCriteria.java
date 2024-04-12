@@ -2,8 +2,8 @@ package com.ohgiraffers.common;
 
 public class SearchCriteria {
 
-    private String condition;       //검색조건
-    private String value;           //검색어
+    private String condition;       // 검색조건
+    private String value;           // 검색어
 
     public SearchCriteria() {
     }
@@ -27,5 +27,13 @@ public class SearchCriteria {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "SearchCriteria{" +
+                "condition='" + condition + '\'' +
+                ", value='" + value + '\'' +
+                '}';
     }
 }

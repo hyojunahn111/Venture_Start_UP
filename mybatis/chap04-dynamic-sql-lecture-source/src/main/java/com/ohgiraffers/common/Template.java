@@ -12,15 +12,14 @@ public class Template {
 
     private static SqlSessionFactory sqlSessionFactory;
 
-    public static SqlSession getSqlSession(){
+    public static SqlSession getSqlSession() {
 
-        if(sqlSessionFactory == null){
-
+        if (sqlSessionFactory == null) {
             String resource = "config/mybatis-config.xml";
 
-            InputStream inputStream = null;
+
             try {
-                inputStream = Resources.getResourceAsStream(resource);
+                InputStream inputStream = Resources.getResourceAsStream(resource);
                 sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
             } catch (IOException e) {
@@ -30,5 +29,4 @@ public class Template {
 
         return sqlSessionFactory.openSession(false);
     }
-
 }

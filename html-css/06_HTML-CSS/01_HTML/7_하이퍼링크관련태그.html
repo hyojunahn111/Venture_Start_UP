@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        링크 기능은 웹 문서가 다른 문서와 구분되는 가장 핵심적인 기능이다
+        클릭을 통해 연결된 곳으로 이동하여 사용을 편리하게 하는 기능이다
+        텍스트를 클릭해 이동하는 방법이다
+        이미지를 클릭해 이동하는 방법이 있으며 페이지 내에서의 링크를 통한 이동도 가능하다
+     -->
+     <h1>하이퍼링크 관련 태그</h1>
+
+     <h3>a태그(anchor 태그)를 이용한 하이퍼링크</h3>
+     <ul>
+        <li><a href="1.글자관련태그.html">글자 관련 태그</a></li>
+        <li><a href="2.목록관련태그.html">목록 관련 태그</a></li>
+        <li><a href="3_표관련태그.html">표 관련 태그</a></li>
+        <li><a href="4_영역관련태그.html">영역 관련 태그</a></li>
+        <li><a href="5_이미지관련태그.html">이미지 관련 태그</a></li>
+     </ul>
+
+     <br>
+
+     <!-- 네트워크가 연결된 상황이라면 현재 서비스중인 웹페이지 링크도 가능하다 -->
+     <!-- 
+        target 속성
+        _self : 기존 탭 활용
+        _blank : 새 탭으로 열기
+      -->
+     <ul>
+        <li><a href="https://www.naver.com" target="_self">Naver</a></li>
+        <li><a href="https://www.google.com" target="_blank">Google</a></li>
+        <li><a href="https://www.daum.net" target="_blank">Daum</a></li>
+     </ul>
+
+     <br>
+
+     <!-- img 태그를 이용해 링크를 걸 수 있다 -->
+     <a href="http://www.w3schools.com" target="_blank">
+        <img src="../sample/image/forest1.PNG" width="150px" height="100px">
+     </a>
+     
+     <br>
+
+     <h3 id="menu">한 페이지 내에서 점프하는 앵커 만들기</h3>
+     <ol>
+        <li><a href="#content1">본문 내용 1</a></li>
+        <li><a href="#content2">본문 내용 2</a></li>
+        <li><a href="#content3">본문 내용 3</a></li>
+     </ol>
+
+
+     <h4 id="content1">Contents 1</h4>
+     <pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</pre>
+     <a href="#menu">메뉴로 돌아가기</a>
+
+     <h4 id="content2">Contents 2</h4>
+     <pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</pre>
+     <a href="#menu">메뉴로 돌아가기</a>
+
+     <h4 id="content3">Contents 3</h4>
+     <pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</pre>
+     <a href="#menu">메뉴로 돌아가기</a>
+     
+
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

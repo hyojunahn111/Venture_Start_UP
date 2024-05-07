@@ -33,14 +33,4 @@ public class LifecycleTestServlet extends HttpServlet {
     public void destroy() {
         System.out.println("annotation 매핑 destroy() 메소드 호출 : " + destroyCount++);
     }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("annotation 매핑 doGet() 메소드 호출");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("annotation 매핑 doPost() 메소드 호출");
-    }
 }

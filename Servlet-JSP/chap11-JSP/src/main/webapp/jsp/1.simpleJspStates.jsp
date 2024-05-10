@@ -12,6 +12,41 @@
     <title>simple JSP states</title>
 </head>
 <body>
+    <%-- 2. 주석 태그 --%>
+    <!-- HTML 주석 태그는 클라이언트에게 노출되지만 -->
+    <%-- JSP 주석 태그는 클라이언트에게 노출되지 않는다 --%>
 
+    <%-- 3. 선언 태그 --%>
+    <%-- 서블릿으로 변환 시 선언 태그 내에 작성한 내용을 필드로 선언한다 --%>
+
+    <%!
+        private String name;
+//        name = "hello";       선언태그이기 때문에 이런식으로 사용할 수 없다
+        private int age;
+    %>
+
+    <%-- 4. 스크립틀릿 태그 (scriptlet) --%>
+    <%
+        //주석!
+        name = "김상익";
+        age = 20;
+
+        System.out.println("name : " + name);
+        System.out.println("age : " + age);
+
+        for(int i = 0; i < name.length(); i++) {
+            System.out.println(name.charAt(i));
+        }
+    %>
+
+    <%-- 5. expression 태그 --%>
+    <%-- PrintWriter를 이용하여 브라우저에 값을 내보내 보여지게 한다 --%>
+    <%--
+        자바 코드로 변환 시 out.print(); 괄호 안에 expressiom 태그 내에 작성한 내용이 들어간다
+        정상적으로 출력한 값을 작성하는 경우 out.print(name); 이런 식으로 표현되는데,
+        expression 태ㅡ 내에서 세미클론을 작성하여 out.print(name;) 형태가 되므로 에러가 발생한다
+    --%>
+    name : <%= name %><br>
+    age : <%= age %><br>
 </body>
 </html>

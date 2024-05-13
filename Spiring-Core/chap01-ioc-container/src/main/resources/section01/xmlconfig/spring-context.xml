@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="member" class="com.ohgiraffers.common.MemberDTO">     <!-- 아이디를 지정하지 않는다면 MemeberDTO가 M만 소문자가 되면서 자동으로 id가 지정된다 -->
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg name="id" value="user01"/>
+        <constructor-arg index="2">
+            <value>pass01</value>                 <!--value를 내부에 넣지 않아도 이런식으로 안에 넣을 수 있다-->
+        </constructor-arg>
+        <constructor-arg name="name">
+            <value>김상익</value>
+        </constructor-arg>
+    </bean>
+
+</beans>

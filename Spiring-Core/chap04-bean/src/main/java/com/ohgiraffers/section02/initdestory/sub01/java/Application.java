@@ -30,5 +30,14 @@ public class Application {
         cart2.addItem(water);
 
         System.out.println("[cart2 내용]" + cart2.getItems());
+
+
+        /*
+        * init 메소드는 bean 객체 생성 시점에 동작하므로 바로 확인할 수 있지만,
+        * destroy 메소드는 bean 객체 소멸 시점에 동작하므로 컨테이너가 종료되지 않은 경우 확인할 수 없다
+        * GC(garbage Collection)가 해당 bean을 메모리에서 지울 때 destory 메소드가 동작하는데, 메모리에서 지우기 전에 프로세스는 종료되기 때문이다
+        * 따라서 아래와 같이 강제로 컨테이너를 종료시키면 destory 메소드가 동작하는 것을 확인할 수 있다.
+        * */
+        ((AnnotationConfigApplicationContext) context).close();
     }
 }

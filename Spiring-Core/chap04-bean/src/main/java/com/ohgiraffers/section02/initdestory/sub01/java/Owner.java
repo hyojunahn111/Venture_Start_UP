@@ -7,6 +7,6 @@ public class Owner {
 
     public void closeShop(){
         System.out.println("사장님이 가게 문을 닫았쇼. 꺼지쇼");
-    }
+    }//
 
 }

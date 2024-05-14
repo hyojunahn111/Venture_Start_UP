@@ -34,7 +34,7 @@ public class ContextConfiguration {
 
     @Bean(initMethod = "openShop", destroyMethod = "closeShop")
     public Owner owner(){
-        return new Owner();
+        return new Owner();//
     }
 
 }

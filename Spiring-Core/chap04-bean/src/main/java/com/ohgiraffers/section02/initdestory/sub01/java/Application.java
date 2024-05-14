@@ -38,6 +38,6 @@ public class Application {
         * GC(garbage Collection)가 해당 bean을 메모리에서 지울 때 destory 메소드가 동작하는데, 메모리에서 지우기 전에 프로세스는 종료되기 때문이다
         * 따라서 아래와 같이 강제로 컨테이너를 종료시키면 destory 메소드가 동작하는 것을 확인할 수 있다.
         * */
-        ((AnnotationConfigApplicationContext) context).close();
+        ((AnnotationConfigApplicationContext) context).close();//
     }
 }

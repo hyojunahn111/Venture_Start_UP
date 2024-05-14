@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class BookDTO {
 
-    private int sequence;
-    private int isbn;
-    private String title;
-    private String author;
-    private String publisher;
-    private Date createdDate;
+    private int sequence;           //책 id
+    private int isbn;               //ISBN
+    private String title;           //제목
+    private String author;          //작가
+    private String publisher;       //출판사
+    private Date createdDate;       //생성일
 
     public BookDTO(int sequence, int isbn, String title, String author, String publisher, Date createdDate) {
         this.sequence = sequence;
